@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notebook</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<!-- Include the library in the page -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/marked"></script>
+<script src="https://unpkg.com/moment"></script>
+
+
+<body>
+<div id="notebook">
+    <aside class="side-bar">
+        <div class="toolbar">
+            <button @click="addNote">
+                Add Note
+            </button>
+        </div>
+    </aside>
+    <section class="main">
+            <textarea v-model="content">
+
+            </textarea>
+    </section>
+    <!-- Preview pane -->
+    <aside class="preview" v-html="notePreview">
+    </aside>
+
+</div>
+
+</body>
+<script src="script.js"></script>
+
+</html>
