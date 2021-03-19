@@ -9,6 +9,7 @@ func main() {
 		cur := nums[i]
 		j := i - 1
 		for cur < nums[j] && j > 0 {
+			fmt.Println(nums, nums[j+1], nums[j], j)
 			nums[j+1] = nums[j]
 			j--
 		}
