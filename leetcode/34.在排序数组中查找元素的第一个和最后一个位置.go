@@ -16,17 +16,17 @@ func searchRange(nums []int, target int) []int {
 		if nums[mid] == target { // 只有找到 中位数的时候 才行
 			i := mid
 			j := mid 
-			for (i > 0 && nums[i] == target) || (j <len(nums)-1 && nums[j] == target) { // 左右的指针扩散
-				if i > 0 && nums[i] == target {
+			for (i >= 0 && nums[i] == target) || (j <= len(nums)-1 && nums[j] == target) { // 左右的指针扩散
+				if i >= 0 && nums[i] == target {
 						i--
 				}
 				
-				if j < len(nums)-1 && nums[j] == target {
+				if j <= len(nums)-1 && nums[j] == target {
 						j++	
 				}
 
 			}
-			return []int{i + 1, j -1 }
+			return []int{i + 1, j -1}
 		} else  {
 			if nums[mid] > target {  //  没有找到这个数， 接着二分法进行遍历
 				high = mid - 1
