@@ -25,7 +25,7 @@ func binarySearch2(array []int, target, low, high int) {
 		mid := low + (high-low)/2 // 寻找 中间
 
 		if array[mid] == target {
-			return //
+			break
 		}
 		if target > array[mid] {
 			low = mid + 1
