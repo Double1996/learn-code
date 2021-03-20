@@ -11,7 +11,7 @@ func main() {
 		hasChange = false
 		for j := 0; j < len(nums)-1; j++ {
 			if nums[j] > nums[j+1] {
-				nums[j+1] = nums[j]
+				nums[j+1], nums[j] = nums[j], nums[j+1]
 				hasChange = true
 			}
 		}
