@@ -3,8 +3,9 @@ module github.com/double1996/learning-code-everyday
 go 1.12
 
 require (
-	golang.org/x/lint v0.0.0-20190313153728-d0100b6bd8b3 // indirect
-	golang.org/x/tools v0.0.0-20190524140312-2c0ae7006135 // indirect
-	google.golang.org/grpc v1.25.1 // indirect
-	honnef.co/go/tools v0.0.0-20190523083050-ea95bdfd59fc // indirect
+	github.com/disintegration/imaging v1.6.2
+	github.com/fogleman/gg v1.3.0
+	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0
+	golang.org/x/image v0.0.0-20210220032944-ac19c3e999fb
+	google.golang.org/grpc v1.25.1
 )
