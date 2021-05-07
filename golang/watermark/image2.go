@@ -13,7 +13,7 @@ import (
 var (
 	dpi      = flag.Float64("dpi", 72, "screen resolution in Dots Per Inch")
 	fontfile = flag.String("fontfile", "./Alibaba-PuHuiTi-Regular.ttf", "filename of the ttf font")
-	size     = flag.Float64("size", 28, "font size in points")
+	size     = flag.Float64("size", 22, "font size in points")
 )
 
 // 知乎防水印 https://studygolang.com/articles/13632
@@ -24,8 +24,8 @@ func main() {
 func drawImageBygg() {
 	dc := gg.NewContext(320, 180) // 56 => w*sin(45) + h*sin(45)  45度时，字体达到最大高度
 	dc.Clear()
-	dc.SetRGBA(0, 0, 0, 1) // 设置字体色
-	//dc.SetRGBA(235, 235, 235, 0.2) // 设置字体色
+	//dc.SetRGBA(0, 0, 0, 1) // 暗水印
+	dc.SetRGBA(235, 235, 235, 0.1) // 明水印
 
 	fontBytes, err := ioutil.ReadFile(*fontfile)
 	if err != nil {
