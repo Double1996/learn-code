@@ -65,11 +65,11 @@ func Encrypt(key string, val string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return base64.URLEncoding.EncodeToString(crypted), nil
+	return base64.StdEncoding.EncodeToString(crypted), nil
 }
 
 func Decrypt(key string, val string) (string, error) {
-	crypted, err := base64.URLEncoding.DecodeString(val)
+	crypted, err := base64.StdEncoding.DecodeString(val)
 	if err != nil {
 		return "", err
 	}
