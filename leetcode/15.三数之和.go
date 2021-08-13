@@ -9,7 +9,9 @@
 // @lc code=start
 func threeSum(nums []int) [][]int {
 	var res [][]int
-	for range
+	for i, n := range nums {
+		
+	}
 }
 
 
