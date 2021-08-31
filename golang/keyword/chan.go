@@ -47,11 +47,29 @@ func chan4() {
 	}
 }
 
+// chan 的泄露问题
+func process(timeout time.Duration) bool {
+	ch := make(chan bool)
+	go func() {
+		// 模拟处理耗时的业务
+		time.Sleep(timeout + time.Second)
+		ch <- true // block
+		fmt.Println("exit goroutine")
+	}()
+	select {
+	case result := <-ch:
+		return result
+	case <-time.After(timeout):
+		return false
+	}
+}
+
 func main() {
 	//stop = make(chan bool)
 	//go chan1("work1")
 	//time.Sleep(3 * time.Second)
 	//stop <- true
 	//time.Sleep(3 * time.Second)
-	chan4()
+	//chan4()
+	process(5 * time.Second)
 }
