@@ -26,7 +26,7 @@ func (j jsonSystemConfigParser) ParseSystem(data []byte) {
 	panic("implement me")
 }
 
-// IConfigParserFactory 工厂方法接口, 多个interface 进行组合的方式
+// IConfigParserFactory 工厂方法接口, 多个interface 进行组合的方式, 一个工厂方法可以创建相关联的多个类的时候就是抽象工厂模式，这个不太常用
 type IConfigParserFactory interface {
 	CreateRuleParser() IRuleConfigParser
 	CreateSystemParser() ISystemConfigParser

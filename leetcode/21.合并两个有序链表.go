@@ -14,7 +14,7 @@
  */
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
     prehead := &ListNode{}
-    result := prehead
+    result := prehead       // 哨兵节点
     for l1 != nil && l2 != nil {
         if l1.Val < l2.Val {
             prehead.Next = l1
