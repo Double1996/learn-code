@@ -13,7 +13,7 @@
  * }
  */
 
-var res []int
+// var res []int
 
 func preorder(root *Node) []int {
 	 // 思路： 使用栈来进行 深度遍历
@@ -25,19 +25,35 @@ func preorder(root *Node) []int {
 	 这样就保证了下一个遍历到的节点（即 u 的第一个子节点 v1）出现在栈顶的位置。
 	 */
 	 res = []int{}
-	 dfs(root)
+	 stack := []*Node{root}  // 使用栈来实现递归
+	 if len(stack) != 0 {  // 栈不为空的情况下
+		for root != nil {
+			res := append(res, res.Val)
+			if len(root.Children) == 0 {  // 如果没有子元素
+				break
+			}
+			for i := len(root.Children) - 1; 0 < i; i-- {   // 按照 先右边后左边的顺序放入
+				stack = append(stack, root.Children[i]) //入栈
+			}
+			root = root.Children[0]
+		}
+		}
+		root = stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+	 }	
+	//  dfs(root)
 	 return res 
 }
 
-func dfs(root *Node) {   // 深度优先遍历
-	if root == nil {
-		return
-	}
-	res = append(res, root.Val)
-	for _, n := range root.Children{
-		dfs(n)
-	}
-}
+// func dfs(root *Node) {   // 深度优先遍历, 递归实现
+// 	if root == nil {
+// 		return
+// 	}
+// 	res = append(res, root.Val)
+// 	for _, n := range root.Children{
+// 		dfs(n)
+// 	}
+// }
 
 // @lc code=end
 
