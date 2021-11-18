@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 /**
-  排序思想； 1.
+  排序思想；   又称分区交换排序,
   时间复杂读:  最糟糕的情况是 O(n2) 平均是 O(log n)
   空间复杂度:  O(n) 平均是 O(log n)
 */

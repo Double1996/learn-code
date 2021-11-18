@@ -1,5 +1,10 @@
 package main
 
+/**
+排序的思想：
+
+*/
+
 func mergeSort() {
 
 }
