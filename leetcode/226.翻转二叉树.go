@@ -14,7 +14,21 @@
  * }
  */
 func invertTree(root *TreeNode) *TreeNode {
+	// 思路
+	// 时间复杂度
+	// 空间复杂度
 
+	if root == nil {  //de
+		return root
+	}
+
+		// 交换左右两个节点
+		tmp := root.Left
+		root.Left = root.Right
+		root.Right = tmp
+		invertTree(root.Right)
+		invertTree(root.Left)
+		return root
 }
 // @lc code=end
 
