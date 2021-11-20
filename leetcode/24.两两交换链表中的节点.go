@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=141 lang=golang
+ * @lc app=leetcode.cn id=24 lang=golang
  *
- * [141] 环形链表
+ * [24] 两两交换链表中的节点
  */
 
 // @lc code=start
@@ -12,10 +12,9 @@
  *     Next *ListNode
  * }
  */
-func hasCycle(head *ListNode) bool {
-	// 时间复杂度
-	// 空间复杂度
-	// 快慢指针
+func swapPairs(head *ListNode) *ListNode {
+	// 
+	
 
 
 
@@ -25,10 +24,6 @@ func hasCycle(head *ListNode) bool {
 
 
 
-
-
-
-    
 }
 // @lc code=end
 

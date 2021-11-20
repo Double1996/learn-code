@@ -7,7 +7,7 @@
 // @lc code=start
 func numIslands(grid [][]byte) int {
 	// 思想
-	// 
+	//
 
 
 
