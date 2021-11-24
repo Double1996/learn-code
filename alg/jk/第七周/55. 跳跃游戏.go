@@ -1,4 +1,4 @@
-package 第7周
+package 第七周
 
 func canJUmp(nums []int) bool {
 	if len(nums) <= 1 {
