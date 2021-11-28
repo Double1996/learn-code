@@ -1,4 +1,4 @@
-package 第7周
+package 第七周
 
 import "math"
 
