@@ -1,16 +1,17 @@
-package main
+package sort
 
 /**
 排序的思想：
 
 */
 
-func mergeSort() {
+func merge(a []int, b []int) []int {
+	var r = make([]int, len(a)+len(b))
+	var i, j = 0, 0
 
+	return r
 }
 
-func main() {
-	var nums = []int{120, 13, 23, 516, 99, 87, 23, 7, 103}
-	mergeSort(nums)
+func MergeSort() {
 
 }

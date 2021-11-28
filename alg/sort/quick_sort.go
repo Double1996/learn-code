@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package sort
 
 /**
   排序思想；   又称分区交换排序,
@@ -8,38 +6,31 @@ import "fmt"
   空间复杂度:  O(n) 平均是 O(log n)
 */
 
-func quickSort(array []int) []int {
-	return _quickSort(array, 0, len(array)-1)
-}
-
-func _quickSort(arr []int, left, right int) []int {
-	if left < right {
-		partitionIndex := partition(arr, left, right)
-		_quickSort(arr, left, partitionIndex-1) // 左右交换
-		_quickSort(arr, partitionIndex+1, right)
-	}
-	return arr
-}
-
-//
-func partition(arr []int, left, right int) int {
-	pivot := left
-	index := pivot + 1
-
-	for i := index; i <= right; i++ {
-		if arr[i] < arr[pivot] {
-			swap(arr, i, index)
-			index += 1
+func partition(arr []int, low, high int) int { // 分区
+	index := low - 1
+	pivotElement := arr[high] // 预设的最大值
+	for i := low; i < high; i++ {
+		if arr[i] <= pivotElement { //
+			index += 1                              // 第一次 等于 low,
+			arr[index], arr[i] = arr[i], arr[index] // 最后的以为，和当前位置的进行交换
 		}
 	}
-	swap(arr, pivot, index-1)
-	return index - 1
+	arr[index+1], arr[high] = arr[high], arr[index+1] // ?
+	return index + 1
 }
 
-func swap(arr []int, i, j int) {
-	arr[i], arr[j] = arr[j], arr[i]
+func QuickSortRange(arr []int, low, high int) {
+	if len(arr) <= 1 {
+		return
+	}
+	if low < high {
+		pviot := partition(arr, low, high) // 获取
+		QuickSortRange(arr, low, pviot-1)  // 排序上半部分
+		QuickSortRange(arr, pviot+1, high) //  排序下半部分
+	}
 }
 
-func main() {
-	fmt.Println(quickSort([]int{120, 13, 23, 516, 99, 87, 23, 7, 103}))
+func QuickSort(arr []int) []int {
+	QuickSortRange(arr, 0, len(arr)-1)
+	return arr
 }

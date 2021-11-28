@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package sort
 
 /**
   排序思想；   又称分区交换排序,
@@ -8,9 +6,7 @@ import "fmt"
   空间复杂度:  O(n) 平均是 O(log n)
 */
 
-func main() {
-	var nums = []int{1, 13, 23, 56, 99, 87, 23, 7, 103}
-
+func bubbleSort(nums []int) []int {
 	hasChange := true
 
 	for i := 0; i < len(nums)-1 && hasChange; i++ {
@@ -22,5 +18,5 @@ func main() {
 			}
 		}
 	}
-	fmt.Println(nums)
+	return nums
 }
