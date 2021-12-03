@@ -20,11 +20,11 @@ func reverseList(head *ListNode) *ListNode {
 	 var res *ListNode  // 空的链表
 	 curr := head				// 
 
-	 for curr != nil {
+	 for curr != nil {    //  递归的思想, 如果没有为空改变 链表的指向
 			next := curr.Next // 1. 把之后所有的节点的存储起来
-			curr.Next = res   // 2.  
-			res  = curr
-			curr = next 
+			curr.Next = res   // 2. 当前的链表 指向为结果链表
+			res  = curr       // 3. 结果等于 当前链表
+			curr = next				// 4. 链表 迭代完成 
 	 }
 	 return res
 
