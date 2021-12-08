@@ -3,7 +3,6 @@ package interview
 import (
 	"fmt"
 	"sync"
-	"unicode/utf8"
 )
 
 /**
@@ -13,8 +12,10 @@ import (
 
 /**
   // 思路： 通过 chan 信号量来进行控制
-  //
-  //
+  // 掌握 基于 信号通知的写法， 几个要点
+  // 1. sync.waitGroup 阻塞
+  // 2. 定义不同的 channel 进行 按顺序消息传递
+  // 3. 等待满足结果退出
 */
 
 func PrintWordNumber() {
@@ -24,7 +25,7 @@ func PrintWordNumber() {
 	go func() {
 		i := 1
 		for {
-			<-numberCh
+			<-numberCh // 开始执行
 			fmt.Printf("%d%d", i, i+1)
 			i += 2
 			wordCh <- struct{}{} // 进行信号通知
@@ -37,7 +38,7 @@ func PrintWordNumber() {
 		i := 0
 		for {
 			<-wordCh
-			if i >= utf8.RuneCountInString(str) { // 推出
+			if i >= len(str) { // 同步成功
 				wait.Done()
 				return
 			}
