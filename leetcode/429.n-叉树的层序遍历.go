@@ -15,7 +15,7 @@
 
 func levelOrder(root *Node) [][]int {
 	NodeQ := []*Node{root} // 使用队列来进行广度优先的遍历
-	res := [][]int{}
+	res := [][]int{}				// 
 
 	for len(NodeQ) == 0 {  
 		if root != nil {

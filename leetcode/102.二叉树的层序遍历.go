@@ -18,10 +18,10 @@ func levelOrder(root *TreeNode) [][]int {
 	if root == nil {
 		return res
 	}
-	queue := list.New()   // 定义一个队列
-	queue.PushBack(root)
+	queue := list.New()   // 定义一个队列, 二叉树广度优先搜索需要使用
+	queue.PushBack(root)  // 
 	var tempArr []int
-	for queue.Len() > 0 {
+	for queue.Len() > 0 {	 // 
 		length := queue.Len()
 		for i:= 0; i < length; i++ {
 			node := queue.Remove(queue.Front()).(*TreeNode)	

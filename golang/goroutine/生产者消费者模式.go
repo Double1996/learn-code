@@ -40,7 +40,7 @@ func Producer(ch chan int) {
 	for i := 0; i <= 10; i++ {
 		ch <- i
 	}
-	close(ch)
+	close(ch) // 不去close channel 会deadlock
 }
 
 func Consumer(id int, ch chan int, done chan bool) {
@@ -60,10 +60,10 @@ func main() {
 	ch := make(chan int, 3)
 	coNum := 2
 	done := make(chan bool, coNum)
-	for i := 1; i <= coNum; i++ {
+	for i := 1; i <= coNum; i++ { // 两个消费者
 		go Consumer(i, ch, done) // 然后开启一个新的goroutine，把双向通道作为参数传递到producer方法中，同时转成只写通道。子协程开始执行循环，向只写通道中添加数据，这就是生产者。
 	}
-	go Producer(ch) // 主协程，直接调用consumer方法，该方法将双向通道转成只读通道，通过循环每次从通道中读取数据，这就是消费者。
+	go Producer(ch) // 主协程，直接调用consumer方法，该方法将双向通道转成只读通道，通过循环每次从通道中读取数据，这就是消费者。 10 个消费者
 	for i := 0; i < coNum; i++ {
 		<-done
 	}
