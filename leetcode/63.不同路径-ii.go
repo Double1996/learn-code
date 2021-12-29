@@ -6,9 +6,9 @@
 
 // @lc code=start
 func uniquePathsWithObstacles(obstacleGrid [][]int) int {
-	m,n:= len(obstacleGrid),len(obstacleGrid[0])
+	m,n:= len(obstacleGrid),len(obstacleGrid[0])  // 不同路径的
 	// 定义一个dp数组
-	dp := make([][]int,m)
+	dp := make([][]int,m)  // 定义 dp 
 	for i,_ := range dp {
 		dp[i] = make([]int,n)
 	}
