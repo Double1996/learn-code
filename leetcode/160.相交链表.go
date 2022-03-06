@@ -18,7 +18,7 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	// 2.继续遍历, 直到相交节点，p1走过Lb-c, p2走过La-c
 	// 3.p1, p2直到相交节点时，走过的总长度都为La+Lb-c
 	// tips: 如果不相交，则两指针各走La+Lb长度，最后都到了各自的尾部，p1=nil
-
+	//for 内循环在两个 链表（a+b和b+a）都结束后就自动结束了。
 	p1, p2 := headA, headB
 	for p1 != p2 {
 		if p1 != nil { // 1.走A链表时，走到底 2.改了B链表，继续遍历
