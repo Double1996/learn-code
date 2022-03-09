@@ -14,29 +14,31 @@
  * }
  */
 func levelOrder(root *TreeNode) [][]int {
-	var res [][]int
-	if root == nil {
-		return res
-	}
-	queue := list.New()   // 定义一个队列, 二叉树广度优先搜索需要使用
-	queue.PushBack(root)  // 
-	var tempArr []int
-	for queue.Len() > 0 {	 // 
-		length := queue.Len()
-		for i:= 0; i < length; i++ {
-			node := queue.Remove(queue.Front()).(*TreeNode)	
-			if node.Left != nil {
-				queue.PushBack(node.Left)
-			}	
-			if node.Right != nil {
-				queue.PushBack(node.Right)
-			}	
-			tempArr = append(tempArr, node.Val)
-		}		
-		res = append(res, tempArr)		
-		tempArr = []int{}
-	}
-	return res
+	   var res [][]int
+    if root == nil {
+        return res
+    }
+
+    arr := []*TreeNode{root}
+
+    for len(arr) > 0 {
+        size := len(arr)
+        curRes := []int{}
+        for i := 0; i < size; i++ {
+            node := arr[i]
+            curRes = append(curRes, node.Val)
+            if node.Left != nil {
+                arr = append(arr, node.Left)
+            }
+            if node.Right != nil {
+                arr = append(arr, node.Right)
+            }
+        }
+        arr = arr[size:]
+        res = append(res, curRes)
+    }
+
+    return res
 }
 // @lc code=end
 
