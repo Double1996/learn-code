@@ -5,11 +5,13 @@
  */
 
 // @lc code=start
-func findKthLargest(nums []int, k int) int {
-    rand.Seed(time.Now().UnixNano())
+func findKthLargest(nums []int, k int) int {  // 基于快速排序实现
+    rand.Seed(time.Now().UnixNano()) // 
     return quickSelect(nums, 0, len(nums)-1, len(nums)-k)
 }
 
+// 使用快速排序实现, 是快速排序的变种，但是不需要每个区间都取进行排序
+// 利用快排的思想，再考虑是再左边 还是再右边找 K-1 个数
 func quickSelect(a []int, l, r, index int) int {
     q := randomPartition(a, l, r)
     if q == index {
@@ -38,5 +40,15 @@ func partition(a []int, l, r int) int {
     a[i+1], a[r] = a[r], a[i+1]
     return i + 1
 }
+
+// 使用堆排序实现
+
+
+
+
+
+
+
+
 // @lc code=end
 

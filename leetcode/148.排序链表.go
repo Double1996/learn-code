@@ -12,11 +12,23 @@
  *     Next *ListNode
  * }
  */
-func merge()
+
 
 
 
 func sortList(head *ListNode) *ListNode {
+		/**
+		 思路: 
+		*/
+}
 
+func merge() {  // 合并排序链表
+
+	
+}
+
+
+func getLength() { // 
+	
 }
 // @lc code=end

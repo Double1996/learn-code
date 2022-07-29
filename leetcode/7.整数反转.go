@@ -6,6 +6,14 @@
 
 // @lc code=start
 func reverse(x int) int {
+	stack := []int
+	for 
+
+
+
+
+
+
 
 }
 // @lc code=end

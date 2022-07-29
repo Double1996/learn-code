@@ -30,6 +30,28 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 		second.Next = second.Next.Next  // 删除中间的节点
 
 		return dummy.Next
+
+		// 第二种思路, 使用 栈的方式
+		dummy := &ListNode{0, head}
+		var stack []int{}       // 使用栈这种数据结构
+		for  
+
+
+
+
+
+
+
+
+
+
+
+
+		return dummy.Next
+
+
+
+
 }
 // @lc code=end
 

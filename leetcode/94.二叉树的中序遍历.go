@@ -17,7 +17,7 @@ func inorderTraversal(root *TreeNode) []int {
 	// 思路
 	var res []int
 	var inorder func(node *TreeNode)
-	inorder = func(node *TreeNode) {
+	inorder = func(node *TreeNode) {  // 递归写法
 		if node == nil {
 			return
 		}
@@ -28,5 +28,25 @@ func inorderTraversal(root *TreeNode) []int {
 	inorder(root)
 	return res
 }
+
+// 非递归写法, 使用栈
+func inorderTraversal(root *TreeNode) []int {
+	ans := make([]int, 0)
+  stack := make([]*TreeNode, 0)
+  pos := root
+  for pos != nil || len(stack) > 0 {
+      if pos != nil {
+          stack = append(stack, pos)  // 入栈
+          pos = pos.Left
+      } else {
+          node := stack[len(stack)-1] // 出栈
+          stack = stack[:len(stack)-1] // 栈递减
+          ans = append(ans, node.Val)
+          pos = node.Right
+      }
+    }
+    return ans
+}
+
 // @lc code=end
 

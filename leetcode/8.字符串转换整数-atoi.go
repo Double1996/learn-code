@@ -28,7 +28,7 @@ func myAtoi(s string) int {
 	ans := 0
 	
 	for index< len(s) && s[index] >= '0' && s[index] <= '9' {
-		if ans > (2147483648 - int(s[index] - '0')) / 10  {
+		if ans > (2147483647 - int(s[index] - '0')) / 10  {
 				if sign == 1 {
 					return math.MaxInt32
 				}

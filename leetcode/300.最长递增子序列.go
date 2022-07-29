@@ -6,6 +6,7 @@
 
 // @lc code=start
 func lengthOfLIS(nums []int) int {
+	// 使用 dp 动态规划
 	// 1. 定义 dp 结果
 	dp := make([]int, len(nums))
 	// 2. f(n) 状态转移的方程 

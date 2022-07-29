@@ -13,7 +13,32 @@
  * }
  */
 func reverseBetween(head *ListNode, left int, right int) *ListNode {
-	
+		// 
+
+
+
+
+
+
+
+
+
+
+
+
 }
+
+// 内部翻转链表的变形体
+func reverse(head, end *ListNode) {
+
+
+
+
+
+
+
+}
+
+
 // @lc code=end
 
